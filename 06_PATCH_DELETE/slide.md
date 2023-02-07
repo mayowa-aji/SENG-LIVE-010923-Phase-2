@@ -1,13 +1,24 @@
-# PATCH & DELETE Requests
+---
+presentation:
+  width: 1500
+  height: 1000
+  controls: false
+---
 
-## SWBATs:
+<!-- slide -->
 
-- [ ] Observe how to send PATCH & DELETE requests
-- [ ] Review changing parent state
+<h2><strong> 🪡 PATCH & DELETE ❌ </strong></h2>
 
-## Deliverables
+<!-- slide -->
 
-#### 1. Review changes to the project showcase application
+<h2><strong> ✅ Objectives </strong></h2>
+
+- Observe how to send `PATCH` & `DELETE` requests in React
+- Review updating parent state via Inverse Data Flow
+
+<!-- slide style="text-align: left;" -->
+
+<h2 style="text-align: center;"><strong> Review changes to the project showcase application </strong></h2>
 
 - Observe the `ProjectEditForm` component
 
@@ -17,7 +28,13 @@
 
 - Update the `useEffect` inside the `ProjectEditForm` component so that the side effect will run upon `projectId` updates
 
-#### 2. Submit the edit project form and make a PATCH request
+<br>
+
+<!-- slide style="text-align: left;" -->
+
+<h2 style="text-align: center;"><strong> Submit the edit project form and make a PATCH request</strong></h2>
+
+<br>
 
 - Inside of the `ProjectEditForm` component, update `handleSubmit` to include a `PATCH` request
 
@@ -29,7 +46,11 @@
 
 - Reset the edit form after submission is complete
 
-#### 3. Click the delete button and make a DELETE request
+<!-- slide style="text-align: left;" -->
+
+<h2 style="text-align: center;"><strong> Click the delete button and make a DELETE request </strong></h2>
+
+<br>
 
 - Attach an `onClick` event listener to the delete button
 
@@ -39,7 +60,11 @@
 
   - The goal is to return a new array with the deleted project excluded
 
-#### 4. Click the claps button and persist the updated number of claps
+<!-- slide style="text-align: left;" -->
+
+<h2 style="text-align: center;"><strong> Click the claps button and persist the updated number of claps </strong></h2>
+
+<br>
 
 - Send a `PATCH` request when the `clapsCount` is updated through a click event
 
