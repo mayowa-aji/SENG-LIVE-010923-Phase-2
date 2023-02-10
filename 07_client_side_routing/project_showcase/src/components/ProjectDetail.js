@@ -1,18 +1,32 @@
-import React, { useEffect, useState } from "react";
+// Deliverable 4: Using the useParams hook, access the :id param from the URL
+// to trigger appropriate GET requests
+
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ProjectDetail = () => {
   const [claps, setClaps] = useState(0);
   const [project, setProject] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const id = 1;
+  const { id } = useParams();
 
   useEffect(() => {
     fetch(`http://localhost:4000/projects/${id}`)
       .then((r) => r.json())
       .then((project) => {
+        
+        // Currently, before we can get to this step,
+        // we're trying to destructure "project"
         setProject(project);
+
+        // Invoke setIsLoaded to change isLoaded State
+        setIsLoaded(!isLoaded);
       });
   }, [id]);
+
+  // Reference isLoaded State. If False, Render Simple H1 "Loading..." Component
+  if (!isLoaded) return <h1>Loading...</h1>;
 
   const { image, name, about, link, phase } = project;
 
