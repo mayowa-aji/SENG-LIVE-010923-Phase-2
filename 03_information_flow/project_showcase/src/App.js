@@ -14,10 +14,15 @@ const App = () => {
     fetch("http://localhost:4000/projects")
     .then((response) => response.json())
     .then((projects) => setProjects(projects))
+    .catch((error) => console.error(error))
   }
 
   const handleClick = () => setIsDarkMode(!isDarkMode);
   const handleOnChange = (e) => setSearchQuery(e.target.value);
+
+  const searchResults = projects.filter((project) => {
+    return project.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
 
   const appTheme = isDarkMode ? 'App' : 'App light'
   return (
@@ -30,10 +35,8 @@ const App = () => {
       <ProjectForm />
       <button onClick={handleProjects}>Load Projects</button>
       <ProjectList
-        projects={projects}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
         handleOnChange={handleOnChange}
+        searchResults ={searchResults}
         />
     </div>
   );
